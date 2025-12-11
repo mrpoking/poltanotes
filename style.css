@@ -1,0 +1,231 @@
+/* NAVBAR */
+.navbar {
+    top             : 0;
+    padding         : 0.6em;
+    gap             : 0.6em;
+    z-index         : 1;
+
+    width           : 100%;
+    height          : 4.2em;
+
+    background-color: var(--backgroundcolor-1);
+
+    position        : fixed;
+
+    display         : flex;
+    align-items     : center;
+    justify-content : space-between;
+}
+
+.navbar-left, .navbar-right {
+    gap             : 0.6em;
+
+    width           : fit-content;
+    height          : 100%;
+
+    background-color: var(--backgroundcolor-1);
+
+    display         : flex;
+    align-items     : center;
+}
+
+.web-avatar, .theme-button, .add-button {
+    height          : 100%;
+    aspect-ratio    : 1/1;
+
+    border          : none;
+    outline         : none;
+    color           : var(--fontcolor-1-navbar);
+    border-radius   : var(--borderadius-circle);
+    background-color: var(--backgroundcolor-1);
+
+    cursor          : pointer;
+    overflow        : hidden;
+
+    display         : flex;
+    align-items     : center;
+    justify-content : center;
+
+    &:hover{ color: var(--fontcolor-2-navbar); background-color: var(--backgroundcolor-2);}
+}
+
+.add-button {font-size: 1.8em; font-weight: 100;}
+
+
+/* SIDEBAR */
+.notes-container {
+    padding         : 3px 0.6em 0.6em 0.6em;
+    gap             : 0.6em;
+
+    width           : 100%;
+    max-width       : 80em;
+    height          : fit-content;
+
+    background-color: var(--backgroundcolor-1);
+
+    display              : grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(15em, 100%), 1fr));
+}
+
+.note-card {
+    padding         : 0.6em;
+    gap             : 0.6em;
+
+    aspect-ratio    : 1/1;
+
+    border-radius   : var(--borderadius-square);
+    background-color: var(--backgroundcolor-2);
+
+    cursor          : pointer;
+    position        : relative;
+    overflow        : hidden;
+
+    display         : flex;
+    flex-direction  : column;
+
+    &:hover {outline: 3px solid var(--backgroundcolor-a);}
+}
+
+.note-title, .note-content {
+    width           : 100%;
+    height          : fit-content;
+
+    font-weight     : 100;
+    font-size       : clamp(1rem, 1vw, 1.2rem);
+    color           : var(--fontcolor-2-sidebar);
+    white-space     : pre-wrap;
+    word-wrap       : break-word;
+    background-color: var(--backgroundcolor-2);
+}
+
+.note-content {height: 100%; color: var(--fontcolor-1-sidebar); overflow: hidden;}
+
+.delete-button {
+    top             : 0;
+    right           : 0;
+    margin          : 0.3em;
+
+    height          : 2em;
+    aspect-ratio    : 1/1;
+
+    border          : none;
+    outline         : none;
+    font-size       : 1em;
+    color           : var(--deletebutton-1);
+    border-radius   : var(--borderadius-square);
+    background-color: var(--backgroundcolor-2);
+
+    position        : absolute;
+
+    display         : flex;
+    align-items     : center;
+    justify-content : center;
+
+    &:hover {color: var(--deletebutton-2); background-color: var(--backgroundcolor-c);}
+}
+
+.note-dialog {
+    top             : 50%;
+    left            : 50%;
+    transform       : translate(-50%, -50%);
+
+    width           : 100%;
+    max-width       : 50em;
+    height          : 100%;
+    max-height      : 50em;
+
+    border          : 3px solid var(--backgroundcolor-a);
+    border-radius   : var(--borderadius-square);
+    background-color: var(--backgroundcolor-2);
+
+    &::-webkit-scrollbar {display: none;}
+}
+
+.form {
+    padding         : 0.6em;
+    gap             : 0.6em;
+
+    width           : 100%; 
+    height          : 100%;
+
+    background-color: var(--backgroundcolor-2);
+
+    display         : flex;
+    flex-direction  : column;
+}
+
+.form-a {width : 100%; height: fit-content;}
+
+.form-title, .form-content {
+    padding         : 0.6em;
+
+    width           : 100%;
+    height          : 100%;
+
+    border          : none;
+    outline         : none;
+    font-size       : clamp(1rem, 1.2vw, 1.2rem);
+    color           : var(--fontcolor-2-sidebar);
+    border-radius   : 0.4em 0.4em 0 0;
+    background-color: var(--backgroundcolor-3);
+}
+
+.form-b {width : 100%; height: 100%;}
+
+.form-content {
+    border-radius: 0 0 0.4em 0.4em;
+
+    &::-webkit-scrollbar {
+        width           : 0.6em; 
+        background-color: var(--backgroundcolor-3);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        width           : 0.6em; 
+
+        border-radius   : 0.6em;
+        background-color: var(--backgroundcolor-4);
+
+        cursor          : pointer;
+    }
+}
+
+.form-c {
+    gap            : 0.6em;
+
+    width          : 100%;
+    height         : fit-content;
+
+    display        : flex;
+    flex-direction : row-reverse;
+    justify-content: end;
+}
+
+.cancel-button, .save-button {
+    width           : 5em;
+    height          : 2em;
+
+    border          : none;
+    outline         : none;
+    font-size       : clamp(0.7rem, 1.2vw, 1.2rem);
+    font-weight     : bold;
+    color           : var(--closebutton-1);
+    word-break      : break-all;
+    border-radius   : var(--borderadius-square);
+    background-color: var(--backgroundcolor-3);
+
+    cursor          : pointer;
+
+    display         : flex;
+    align-items     : center;
+    justify-content : center;
+
+    &:hover{color: var(--closebutton-2); background-color: var(--backgroundcolor-4);}
+}
+
+.save-button {
+    color           : var(--savebutton-1);
+    background-color: var(--backgroundcolor-a);
+
+    &:hover{color: var(--savebutton-2); background-color: var(--backgroundcolor-b);}
+}

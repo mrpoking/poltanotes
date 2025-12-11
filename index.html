@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Polta Notes</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"  content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="body.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon"       href="logo.png" type="image/png">
+    <script src="local.js" defer></script>
+
+</head>
+<body>
+
+    <nav class="navbar">
+
+        <div class="navbar-left">
+            <div class="web-avatar">
+                <img src="logo.png" class="image-fullsize">
+            </div>
+        </div>
+
+        <div class="navbar-right">
+            <button class="theme-button" id="themeButton" onclick="themeButton()">🌙</button>
+            <button class="add-button" id="openNoteDialog" onclick="openNoteDialog()">+</button>
+        </div>
+
+    </nav>
+
+    <side class="notes-container" id="notesContainer"><!-- NOTE SAVED --></side>
+
+    <dialog class="note-dialog" id="noteDialog">
+
+        <form class="form">
+
+            <div class="form-a">
+                <input type="text" class="form-title" id="formTitle" autocomplete="off">
+            </div>
+
+            <div class="form-b">
+                <textarea type="text" class="form-content" id="formContent" autocomplete="off"></textarea>
+            </div>
+
+            <div class="form-c">
+                <button class="save-button" type="submit">></button>
+                <button class="cancel-button" type="button" onclick="closeNoteDialog()">✕</button>
+            </div>
+
+        </form>
+
+    </dialog>
+    
+</body>
+</html>
