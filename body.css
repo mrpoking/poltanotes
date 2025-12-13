@@ -1,5 +1,5 @@
 *, *::before, *::after  {box-sizing: border-box; margin: 0; padding: 0;}
-dialog::backdrop        {background-color: transparent;}
+html                    {&:has(dialog[open]:modal) {overflow: hidden;}} 
 textarea                {border: none; outline: none; font-family: sans-serif; resize: none;}
 .image-fullsize         {width: 100%; height: 100%;}
 img                     {-webkit-user-drag: none;}
@@ -22,7 +22,10 @@ body {
 
     &::-webkit-scrollbar       {width: 0.6em; background-color: var(--backgroundcolor-1);}
     &::-webkit-scrollbar-thumb {width: 0.6em; border-radius: 0.6em; background-color: var(--backgroundcolor-2); cursor: pointer;}
-    &:has(dialog[open])        {overflow: hidden;}
+
+    -webkit-user-select: none;
+    -ms-user-select    : none; 
+    user-select        : none;
 }
 
 :root {--borderadius-square: 0.4em; --borderadius-circle: 50%;}
@@ -34,8 +37,8 @@ body {
     --darkmode-fontcolor-1-navbar: oklch(45.45% 0.01914 283.933); 
     --darkmode-fontcolor-2-navbar: oklch(55.45% 0.01914 283.933);
 
-    --darkmode-fontcolor-1-sidebar: oklch(45.45% 0.01914 283.933);
-    --darkmode-fontcolor-2-sidebar: oklch(60.45% 0.01914 283.933);
+    --darkmode-fontcolor-1-sidebar: oklch(50.45% 0.01914 283.933);
+    --darkmode-fontcolor-2-sidebar: oklch(70.45% 0.01914 283.933);
 
     --darkmode-deletebutton-1: oklch(50.45% 0.01914 283.933);
     --darkmode-deletebutton-2: oklch(70.45% 0.01914 283.933);
@@ -47,22 +50,20 @@ body {
     --darkmode-savebutton-2: oklch(100% 0.01914 283.933);
 
     --darkmode-backgroundcolor-1: oklch(15.45% 0.01914 283.933);   
-    --darkmode-backgroundcolor-2: oklch(20.45% 0.01914 283.933); 
-    --darkmode-backgroundcolor-3: oklch(25.45% 0.01914 283.933);
-    --darkmode-backgroundcolor-4: oklch(35.45% 0.01914 283.933);
+    --darkmode-backgroundcolor-2: oklch(22.45% 0.01914 283.933); 
+    --darkmode-backgroundcolor-3: oklch(29.45% 0.01914 283.933);
+    --darkmode-backgroundcolor-4: oklch(36.45% 0.01914 283.933);
 
     --darkmode-backgroundcolor-a: oklch(45.674% 0.10812 277.992);
-    --darkmode-backgroundcolor-b: oklch(50.674% 0.10812 277.992);
-    --darkmode-backgroundcolor-c: oklch(35.933% 0.08437 23.557);
-    --darkmode-backgroundcolor-d: oklch(45.933% 0.08437 23.557);
+    --darkmode-backgroundcolor-b: oklch(35.933% 0.08437 23.557);
 
 
     /* LIGHT THEME VARIABLES */
     --lightmode-fontcolor-1-navbar: oklch(70% 0 0); 
     --lightmode-fontcolor-2-navbar: oklch(60% 0 0);
 
-    --lightmode-fontcolor-1-sidebar: oklch(55% 0 0); 
-    --lightmode-fontcolor-2-sidebar: oklch(25% 0 0);
+    --lightmode-fontcolor-1-sidebar: oklch(45% 0 0); 
+    --lightmode-fontcolor-2-sidebar: oklch(15% 0 0);
 
     --lightmode-deletebutton-1: oklch(40% 0 0); 
     --lightmode-deletebutton-2: oklch(100% 0 0);
@@ -78,10 +79,9 @@ body {
     --lightmode-backgroundcolor-3: oklch(90% 0 0);
     --lightmode-backgroundcolor-4: oklch(85% 0 0);
 
-    --lightmode-backgroundcolor-a: oklch(70.946% 0.08191 280.133);
-    --lightmode-backgroundcolor-b: oklch(65.946% 0.08191 280.133);
-    --lightmode-backgroundcolor-c: oklch(65.406% 0.12791 22.177);
-    --lightmode-backgroundcolor-d: oklch(70.406% 0.12791 22.177);
+    --lightmode-backgroundcolor-a: oklch(65.946% 0.08191 280.133);
+    --lightmode-backgroundcolor-b: oklch(65.406% 0.12791 22.177);
+
 
 
     /* INTERMEDIATE VARIABLES */
