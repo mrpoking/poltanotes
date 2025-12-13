@@ -1,15 +1,15 @@
 let notes         = [];
 let editingNoteId = null;
 
+function saveNotes() {localStorage.setItem('quickNotes', JSON.stringify(notes));}
 
-// LOAD NOTES ()
 function loadNotes() {
     const savedNotes = localStorage.getItem('quickNotes');
     return savedNotes ? JSON.parse(savedNotes) : [];
 }
 
+function generateId() {return Date.now().toString();}
 
-// SAVE NOTE ()
 function saveNote(event) {
     event.preventDefault();
 
@@ -24,7 +24,7 @@ function saveNote(event) {
             content: content,
         }
     } else {
-        notes.unshift({
+        notes.unshift ({
             id     : generateId(),
             title  : title,
             content: content,
@@ -36,16 +36,6 @@ function saveNote(event) {
     renderNotes();
 }
 
-
-// GENERATE ID ()
-function generateId() {return Date.now().toString();}
-
-
-// SAVE NOTES ()
-function saveNotes() {localStorage.setItem('quickNotes', JSON.stringify(notes));}
-
-
-// DELETE NOTE ()
 function deleteNote(noteId) {
     event.stopPropagation();
     if (confirm("Delete This Note?")) {
@@ -55,29 +45,23 @@ function deleteNote(noteId) {
     }
 }
 
-
-// ESCAPE DANGEROUS HTML ()
 function escapeDanHTML(str) {
     const div = document.createElement('div');
     div.textContent = str;
     return div.innerHTML;
 }
 
-
-// RENDER NOTES ()
 function renderNotes() {
     const notesContainer = document.getElementById('notesContainer');
     notesContainer.innerHTML = notes.map(note => `
         <div class="note-card" onclick="openNoteDialog('${note.id}')">
             <h3 class="note-title">${escapeDanHTML(note.title)}</h3>
-            <textarea class="note-content">${escapeDanHTML(note.content)}</textarea>
+            <h3 class="note-content">${escapeDanHTML(note.content)}</h3>
             <button class="delete-button" onclick="deleteNote('${note.id}')">✕</button>
         </div>
     `).join('');
 }
 
-
-// OPEN NOTE DIALOG ()
 function openNoteDialog(noteId = null) {
     const dialog       = document.getElementById('noteDialog');
     const titleInput   = document.getElementById('formTitle');
@@ -98,12 +82,8 @@ function openNoteDialog(noteId = null) {
     titleInput.focus();
 }
 
-
-// CLOSE NOTE DIALOG ()
 function closeNoteDialog() {document.getElementById('noteDialog').close();}
 
-
-// BUTTON THEME
 const themeIcon          = document.getElementById('themeButton');
 const darkmodeThemeIcon  = themeIcon.textContent;
 const lightmodeThemeIcon = '☀️';
@@ -120,12 +100,10 @@ function themeButton() {
 }
     
 function applyTheme() {
-    ['fontcolor-1-navbar', 'fontcolor-2-navbar', 'fontcolor-1-sidebar', 'fontcolor-2-sidebar', 'deletebutton-1', 'deletebutton-2', 'closebutton-1', 'closebutton-2', 'savebutton-1', 'savebutton-2', 'backgroundcolor-1', 'backgroundcolor-2', 'backgroundcolor-3', 'backgroundcolor-4', 'backgroundcolor-a', 'backgroundcolor-b', 'backgroundcolor-c', 'backgroundcolor-d']
+    ['fontcolor-1-navbar', 'fontcolor-2-navbar', 'fontcolor-1-sidebar', 'fontcolor-2-sidebar', 'deletebutton-1', 'deletebutton-2', 'closebutton-1', 'closebutton-2', 'savebutton-1', 'savebutton-2', 'backgroundcolor-1', 'backgroundcolor-2', 'backgroundcolor-3', 'backgroundcolor-4', 'backgroundcolor-a', 'backgroundcolor-b']
     .forEach((s) => document.body.style.setProperty(`--${s}`, `var(--${localStorage.getItem('themeMode')}-${s})`));
 }
 
-
-// WHEN PAGE IS FULLY LOADED
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.form').addEventListener('submit', saveNote);
     notes = loadNotes();
