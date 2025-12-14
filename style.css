@@ -91,7 +91,7 @@
     height          : fit-content;
 
     font-weight     : 100;
-    font-size       : clamp(1rem, 1vw, 1.2rem);
+    font-size       : clamp(1.4rem, 1vw, 1.2rem);
     color           : var(--fontcolor-2-sidebar);
     white-space     : pre-wrap;
     word-wrap       : break-word;
@@ -134,7 +134,8 @@
     height          : 100%;
     max-height      : 50em;
 
-    border          : 1px solid var(--backgroundcolor-3);
+    border          : none;
+    outline         : none;
     border-radius   : var(--borderadius-square);
     background-color: var(--backgroundcolor-2);
 
@@ -162,7 +163,7 @@
     border          : none;
     border-bottom   : 1px solid var(--backgroundcolor-3);
     outline         : none;
-    font-size       : clamp(1rem, 1.2vw, 1.2rem);
+    font-size       : clamp(1.2rem, 1.2vw, 1.2rem);
     color           : var(--fontcolor-2-sidebar);
     background-color: var(--backgroundcolor-2);
 }
@@ -194,12 +195,13 @@
 }
 
 .cancel-button, .save-button {
-    width           : 5em;
+    width           : 100%;
+    max-width       : 5em;
     height          : 2em;
 
     border          : none;
     outline         : none;
-    font-size       : clamp(0.7rem, 1.2vw, 1.2rem);
+    font-size       : clamp(1rem, 1.2vw, 1.2rem);
     font-weight     : bold;
     color           : var(--closebutton-1);
     word-break      : break-all;

@@ -67,15 +67,11 @@ function openNoteDialog(noteId = null) {
     const titleInput   = document.getElementById('formTitle');
     const contentInput = document.getElementById('formContent');
 
-    if (noteId) {
+    if (noteId || !noteId) {
         const noteToEdit   = notes.find(note => note.id === noteId);
-        editingNoteId      = noteId;
-        titleInput.value   = noteToEdit.title;
-        contentInput.value = noteToEdit.content;
-    } else {
-        editingNoteId      = null;
-        titleInput.value   = '';
-        contentInput.value = '';
+        editingNoteId      = noteId ? noteId : null;
+        titleInput.value   = noteId ? noteToEdit.title   : '';
+        contentInput.value = noteId ? noteToEdit.content : '';
     }
 
     dialog.showModal();
@@ -88,7 +84,7 @@ const themeIcon          = document.getElementById('themeButton');
 const darkmodeThemeIcon  = themeIcon.textContent;
 const lightmodeThemeIcon = '☀️';
 
-let themeMode = localStorage.getItem('themeMode') === 'darkmode'
+let themeMode = localStorage.getItem('themeMode') === 'darkmode';
     themeIcon.textContent = themeMode ? darkmodeThemeIcon : lightmodeThemeIcon;
     applyTheme();
 
