@@ -18,6 +18,7 @@
 .navbar-left, .navbar-center, .navbar-right {gap: var(--gap-element); display: flex;}
 
 .polta-logo, .theme-button, .add-button {
+    height          : 100%;
     aspect-ratio    : 1/1;
 
     border          : none;
@@ -31,7 +32,7 @@
     &:hover{color: var(--fontcolor-2); background-color: var(--backgroundcolor-3);}
 }
 
-.add-button  {font-size: clamp(1.8rem, 1vw, 1.2rem);}
+.add-button  {font-size: 1.8em;}
 .form-search {width: 30em;}
 @media only screen and (max-width: 42em) {.form-search {width: 100%;}}
 
