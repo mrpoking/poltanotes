@@ -29,12 +29,14 @@
     background-color: var(--backgroundcolor-2);
     cursor          : pointer;
 
+    overflow        : hidden;
+
     &:hover{color: var(--fontcolor-2); background-color: var(--backgroundcolor-3);}
 }
 
 .add-button  {font-size: 1.8em;}
 .form-search {width: 30em;}
-@media only screen and (max-width: 42em) {.form-search {width: 100%;}}
+@media only screen and (max-width: 50em) {.form-search {width: 100%;}}
 
 .note-search {
     padding         : 0 1em 0 1em;
