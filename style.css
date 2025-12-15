@@ -15,7 +15,14 @@
     justify-content : space-between;
 }
 
-.navbar-left, .navbar-center, .navbar-right {gap: var(--gap-element); display: flex;}
+.navbar-left, .navbar-center, .navbar-right {
+    gap    : var(--gap-element);
+
+    width  : fit-content;
+    height : 100%;
+
+    display: flex;
+}
 
 .polta-logo, .theme-button, .add-button {
     height          : 100%;
@@ -35,8 +42,8 @@
 }
 
 .add-button  {font-size: 1.8em;}
-.form-search {width: 30em;}
-@media only screen and (max-width: 50em) {.form-search {width: 100%;}}
+.form-search {width: 100%;}
+/*@media only screen and (max-width: 50em) {.form-search {width: 100%;}}*/
 
 .note-search {
     padding         : 0 1em 0 1em;
