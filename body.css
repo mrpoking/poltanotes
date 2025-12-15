@@ -5,6 +5,25 @@ textarea                {border: none; outline: none; font-family: sans-serif; r
 img                     {-webkit-user-drag: none;}
 img[src=""], img:not([src]), img.missing {display: none;}
 
+input[type="search"]::-ms-clear,
+input[type="search"]::-ms-reveal {
+  width  : 0;
+  height : 0;
+  display: none;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display           : none;
+  appearance        : none;
+  -webkit-appearance: none;
+}
+
+input::placeholder {color: var(--fontcolor-2);}
+dialog::backdrop   {background-color: var(--backgroundcolor-1);}
+
 body {
     padding-top     : 4.2em;
 
@@ -15,7 +34,7 @@ body {
     background-color: var(--backgroundcolor-1);
 
     overflow        : auto;
-    position        : relative;
+    scroll-behavior : smooth;
 
     display         : flex;
     justify-content : center;
@@ -28,17 +47,22 @@ body {
     user-select        : none;
 }
 
-:root {--borderadius-square: 0.4em; --borderadius-circle: 50%;}
+:root {
+    --borderadius-square: 0.4em; 
+    --borderadius-round : 2em; 
+    --borderadius-circle: 50%;
+
+    --padding-element   : 0.6em;
+    --gap-element       : 0.6em;
+}
 
 :root {
-
     
     /* DARK THEME VARIABLES */
-    --darkmode-fontcolor-1-navbar: oklch(45.45% 0.01914 283.933); 
-    --darkmode-fontcolor-2-navbar: oklch(55.45% 0.01914 283.933);
-
-    --darkmode-fontcolor-1-sidebar: oklch(50.45% 0.01914 283.933);
-    --darkmode-fontcolor-2-sidebar: oklch(70.45% 0.01914 283.933);
+    --darkmode-fontcolor-1: oklch(45.45% 0.01914 283.933); 
+    --darkmode-fontcolor-2: oklch(55.45% 0.01914 283.933);
+    --darkmode-fontcolor-3: oklch(55.45% 0.01914 283.933);
+    --darkmode-fontcolor-4: oklch(70.45% 0.01914 283.933);
 
     --darkmode-deletebutton-1: oklch(50.45% 0.01914 283.933);
     --darkmode-deletebutton-2: oklch(70.45% 0.01914 283.933);
@@ -51,19 +75,19 @@ body {
 
     --darkmode-backgroundcolor-1: oklch(15.45% 0.01914 283.933);   
     --darkmode-backgroundcolor-2: oklch(22.45% 0.01914 283.933); 
-    --darkmode-backgroundcolor-3: oklch(29.45% 0.01914 283.933);
-    --darkmode-backgroundcolor-4: oklch(36.45% 0.01914 283.933);
+    --darkmode-backgroundcolor-3: oklch(25.45% 0.01914 283.933);
+    --darkmode-backgroundcolor-4: oklch(30.45% 0.01914 283.933);
 
     --darkmode-backgroundcolor-a: oklch(45.674% 0.10812 277.992);
-    --darkmode-backgroundcolor-b: oklch(35.933% 0.08437 23.557);
-
+    --darkmode-backgroundcolor-b: oklch(50.674% 0.10812 277.992);
+    --darkmode-backgroundcolor-c: oklch(37.802% 0.07533 22.391);
+    --darkmode-backgroundcolor-d: oklch(40.933% 0.08437 23.557);
 
     /* LIGHT THEME VARIABLES */
-    --lightmode-fontcolor-1-navbar: oklch(70% 0 0); 
-    --lightmode-fontcolor-2-navbar: oklch(60% 0 0);
-
-    --lightmode-fontcolor-1-sidebar: oklch(45% 0 0); 
-    --lightmode-fontcolor-2-sidebar: oklch(15% 0 0);
+    --lightmode-fontcolor-1: oklch(70% 0 0); 
+    --lightmode-fontcolor-2: oklch(60% 0 0);
+    --lightmode-fontcolor-3: oklch(40% 0 0); 
+    --lightmode-fontcolor-4: oklch(15% 0 0);
 
     --lightmode-deletebutton-1: oklch(40% 0 0); 
     --lightmode-deletebutton-2: oklch(100% 0 0);
@@ -79,17 +103,16 @@ body {
     --lightmode-backgroundcolor-3: oklch(90% 0 0);
     --lightmode-backgroundcolor-4: oklch(85% 0 0);
 
-    --lightmode-backgroundcolor-a: oklch(65.946% 0.08191 280.133);
-    --lightmode-backgroundcolor-b: oklch(65.406% 0.12791 22.177);
-
-
+    --lightmode-backgroundcolor-a: oklch(70.946% 0.08191 280.133);
+    --lightmode-backgroundcolor-b: oklch(65.946% 0.08191 280.133);
+    --lightmode-backgroundcolor-c: oklch(65.406% 0.12791 22.177);
+    --lightmode-backgroundcolor-d: oklch(70.406% 0.12791 22.177);
 
     /* INTERMEDIATE VARIABLES */
-    --fontcolor-1-navbar: var(--darkmode-fontcolor-1-navbar);
-    --fontcolor-2-navbar: var(--darkmode-fontcolor-2-navbar);
-
-    --fontcolor-1-sidebar: var(--darkmode-fontcolor-1-sidebar);
-    --fontcolor-2-sidebar: var(--darkmode-fontcolor-2-sidebar);
+    --fontcolor-1: var(--darkmode-fontcolor-1);
+    --fontcolor-2: var(--darkmode-fontcolor-2);
+    --fontcolor-3: var(--darkmode-fontcolor-3);
+    --fontcolor-4: var(--darkmode-fontcolor-4);
 
     --deletebutton-1: var(--darkmode-deletebutton-1);
     --deletebutton-2: var(--darkmode-deletebutton-2);

@@ -1,17 +1,17 @@
-let notes         = [];
-let editingNoteId = null;
+let notes         = []; 
+let editingNoteId = null; 
 
-function saveNotes() {localStorage.setItem('quickNotes', JSON.stringify(notes));}
+function saveNotes() {localStorage.setItem('quickNotes', JSON.stringify(notes));} 
 
-function loadNotes() {
-    const savedNotes = localStorage.getItem('quickNotes');
-    return savedNotes ? JSON.parse(savedNotes) : [];
+function loadNotes() { 
+    const savedNotes = localStorage.getItem('quickNotes'); 
+    return savedNotes ? JSON.parse(savedNotes) : []; 
 }
 
-function generateId() {return Date.now().toString();}
+function generateId() {return Date.now().toString(36) + Math.random().toString(36).slice(2);} 
 
-function saveNote(event) {
-    event.preventDefault();
+function saveNote(e) {
+    e.preventDefault();
 
     const title   = document.getElementById('formTitle').value;
     const content = document.getElementById('formContent').value;
@@ -46,21 +46,36 @@ function deleteNote(noteId) {
 }
 
 function escapeDanHTML(str) {
-    const div = document.createElement('div');
+    const div       = document.createElement('div');
     div.textContent = str;
     return div.innerHTML;
 }
 
-function renderNotes() {
-    const notesContainer = document.getElementById('notesContainer');
-    notesContainer.innerHTML = notes.map(note => `
+function renderNotes(list = notes) {
+    const notesContainer     = document.getElementById('notesContainer');
+    notesContainer.innerHTML = list.map(note => `
         <div class="note-card" onclick="openNoteDialog('${note.id}')">
             <h3 class="note-title">${escapeDanHTML(note.title)}</h3>
             <h3 class="note-content">${escapeDanHTML(note.content)}</h3>
-            <button class="delete-button" onclick="deleteNote('${note.id}')">✕</button>
+            <button class="delete-note" onclick="deleteNote('${note.id}')">✕</button>
         </div>
     `).join('');
 }
+
+let searchTimeout;
+const searchInput = document.querySelector('[data-search]');
+searchInput.addEventListener('input', (e) => {
+    clearTimeout(searchTimeout);
+
+    searchTimeout = setTimeout(() => {
+        const value = e.target.value.toLowerCase();
+        const filteredNotes = notes.filter(note =>
+            note.title.toLowerCase().includes(value) || note.content.toLowerCase().includes(value)
+        );
+
+        renderNotes(filteredNotes);
+    }, 200);
+});
 
 function openNoteDialog(noteId = null) {
     const dialog       = document.getElementById('noteDialog');
@@ -75,7 +90,6 @@ function openNoteDialog(noteId = null) {
     }
 
     dialog.showModal();
-    titleInput.focus();
 }
 
 function closeNoteDialog() {document.getElementById('noteDialog').close();}
@@ -96,12 +110,12 @@ function themeButton() {
 }
     
 function applyTheme() {
-    ['fontcolor-1-navbar', 'fontcolor-2-navbar', 'fontcolor-1-sidebar', 'fontcolor-2-sidebar', 'deletebutton-1', 'deletebutton-2', 'closebutton-1', 'closebutton-2', 'savebutton-1', 'savebutton-2', 'backgroundcolor-1', 'backgroundcolor-2', 'backgroundcolor-3', 'backgroundcolor-4', 'backgroundcolor-a', 'backgroundcolor-b']
+    ['fontcolor-1', 'fontcolor-2', 'fontcolor-3', 'fontcolor-4', 'deletebutton-1', 'deletebutton-2', 'closebutton-1', 'closebutton-2', 'savebutton-1', 'savebutton-2', 'backgroundcolor-1', 'backgroundcolor-2', 'backgroundcolor-3', 'backgroundcolor-4', 'backgroundcolor-a', 'backgroundcolor-b', 'backgroundcolor-c', 'backgroundcolor-d']
     .forEach((s) => document.body.style.setProperty(`--${s}`, `var(--${localStorage.getItem('themeMode')}-${s})`));
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    document.querySelector('.form').addEventListener('submit', saveNote);
+    document.querySelector('.form-note').addEventListener('submit', saveNote);
     notes = loadNotes();
     renderNotes();
 });

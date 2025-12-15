@@ -1,40 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <title>Polta Notes</title>
     <meta charset="UTF-8">
-    <meta name="viewport"  content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="body.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon"       href="logo.png" type="image/png">
-    <script src="local.js" defer></script>
+    <meta name="viewport"    content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Save Your Ideas At Polta Notes">
+    <link rel="stylesheet"   href="body.css">
+    <link rel="stylesheet"   href="style.css">
+    <link rel="icon"         href="polta.png" type="image/png">
+    <script src="local.js"   defer></script>
+    
 </head>
 <body>
+
     <nav class="navbar">
+        
         <div class="navbar-left">
-            <div class="web-avatar">
-                <img src="logo.png" class="image-fullsize">
+            <div class="polta-logo">
+                <a href="https://mrpoking.github.io/poltanotes/" aria-label="polta" class="image-fullsize">
+                    <img src="polta.png" alt="" class="image-fullsize">
+                </a>
             </div>
         </div>
+
+        <div class="navbar-center">
+            <form role="search" class="form-search">
+                <input type="search" id="noteSearch" placeholder="..." data-search class="note-search" autocomplete="off">
+            </form>
+        </div>
+
         <div class="navbar-right">
-            <button class="theme-button" id="themeButton" onclick="themeButton()">🌙</button>
-            <button class="add-button" id="openNoteDialog" onclick="openNoteDialog()">+</button>
+            <button id="themeButton" onclick="themeButton()" class="theme-button">🌙</button>
+            <button id="openNoteDialog" onclick="openNoteDialog()" class="add-button">+</button>
         </div>
+
     </nav>
-    <side class="notes-container" id="notesContainer"><!-- NOTE SAVED --></side>
-    <dialog class="note-dialog" id="noteDialog">
-        <form class="form">
-            <div class="form-a">
-                <input type="text" class="form-title" id="formTitle" autocomplete="off">
+
+    <main id="notesContainer" class="notes-container"><!-- NOTE SAVED --></main>
+
+    <dialog id="noteDialog" class="note-dialog">
+
+        <form class="form-note">
+
+            <div class="form-top">
+                <input type="text" id="formTitle" autocomplete="off" class="form-title" >
             </div>
-            <div class="form-b">
-                <textarea type="text" class="form-content" id="formContent" autocomplete="off"></textarea>
+
+            <div class="form-center">
+                <textarea type="text" id="formContent" autocomplete="off" class="form-content"></textarea>
+                <div class="form-bottom">
+                    <button type="submit" class="save-button">></button>
+                    <button type="button" onclick="closeNoteDialog()" class="cancel-button">✕</button>
+                </div>
             </div>
-            <div class="form-c">
-                <button class="save-button" type="submit">></button>
-                <button class="cancel-button" type="button" onclick="closeNoteDialog()">✕</button>
-            </div>
+
         </form>
+
     </dialog>
+    
 </body>
 </html>

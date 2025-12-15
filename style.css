@@ -1,66 +1,62 @@
 /* NAVBAR */
 .navbar {
     top             : 0;
-    padding         : 0.6em;
-    gap             : 0.6em;
+    padding         : var(--padding-element);
+    gap             : var(--gap-element);
     z-index         : 1;
 
-    width           : 100%;
+    width           : min(100%, 80em);
     height          : 4.2em;
 
     background-color: var(--backgroundcolor-1);
 
     position        : fixed;
-
     display         : flex;
-    align-items     : center;
     justify-content : space-between;
 }
 
-.navbar-left, .navbar-right {
-    gap             : 0.6em;
+.navbar-left, .navbar-center, .navbar-right {gap: var(--gap-element); display: flex;}
 
-    width           : fit-content;
-    height          : 100%;
-
-    background-color: var(--backgroundcolor-1);
-
-    display         : flex;
-    align-items     : center;
-}
-
-.web-avatar, .theme-button, .add-button {
-    height          : 100%;
+.polta-logo, .theme-button, .add-button {
     aspect-ratio    : 1/1;
 
     border          : none;
     outline         : none;
-    color           : var(--fontcolor-1-navbar);
+
+    color           : var(--fontcolor-1);
     border-radius   : var(--borderadius-circle);
-    background-color: var(--backgroundcolor-1);
-
+    background-color: var(--backgroundcolor-2);
     cursor          : pointer;
-    overflow        : hidden;
 
-    display         : flex;
-    align-items     : center;
-    justify-content : center;
-
-    &:hover{ color: var(--fontcolor-2-navbar); background-color: var(--backgroundcolor-2);}
+    &:hover{color: var(--fontcolor-2); background-color: var(--backgroundcolor-3);}
 }
 
-.add-button {font-size: 1.8em; font-weight: 100;}
+.add-button  {font-size: clamp(1.8rem, 1vw, 1.2rem);}
+.form-search {width: 30em;}
+@media only screen and (max-width: 42em) {.form-search {width: 100%;}}
+
+.note-search {
+    padding         : 0 1em 0 1em;
+
+    height          : 100%;
+    width           : 100%;
+
+    border          : none;
+    outline         : none;
+
+    font-size       : clamp(1.2rem, 1vw, 1.2rem);
+    color           : var(--fontcolor-4);
+    border-radius   : var(--borderadius-round);
+    background-color: var(--backgroundcolor-2);
+}
 
 
 /* SIDEBAR */
 .notes-container {
-    padding         : 3px 0.6em 0.6em 0.6em;
-    gap             : 0.6em;
+    padding         : 0 0.6em 0.6em 0.6em;
+    gap             : var(--gap-element);
 
-    width           : 100%;
-    max-width       : 80em;
-    height          : fit-content;
-
+    width           : min(100%, 80em);
     background-color: var(--backgroundcolor-1);
 
     display              : grid;
@@ -68,8 +64,8 @@
 }
 
 .note-card {
-    padding         : 0.6em;
-    gap             : 0.6em;
+    padding         : 0.6em 0.6em 0 0.6em;
+    gap             : var(--gap-element);
 
     aspect-ratio    : 1/1;
 
@@ -79,28 +75,31 @@
     cursor          : pointer;
     position        : relative;
     overflow        : hidden;
-
+    
     display         : flex;
     flex-direction  : column;
 
-    &:hover {outline: 3px solid var(--backgroundcolor-a);}
+    &:hover {
+        .note-title, .note-content, .delete-note {background-color: var(--backgroundcolor-3);}
+        .delete-note:hover {background-color: var(--backgroundcolor-c);}
+        background-color: var(--backgroundcolor-3);
+    }
 }
 
 .note-title, .note-content {
-    width           : 100%;
-    height          : fit-content;
-
     font-weight     : 100;
     font-size       : clamp(1.4rem, 1vw, 1.2rem);
-    color           : var(--fontcolor-2-sidebar);
-    white-space     : pre-wrap;
+    color           : var(--fontcolor-4);
     word-wrap       : break-word;
     background-color: var(--backgroundcolor-2);
 }
 
-.note-content {height: 100%; color: var(--fontcolor-1-sidebar); overflow: hidden;}
+.note-content {
+    font-size: clamp(1.2rem, 1.2vw, 1.2rem);
+    color    : var(--fontcolor-3);  
+    overflow : hidden;}
 
-.delete-button {
+.delete-note {
     top             : 0;
     right           : 0;
     margin          : 0.3em;
@@ -110,18 +109,15 @@
 
     border          : none;
     outline         : none;
-    font-size       : 1em;
+
+    font-size       : 1.15em;
     color           : var(--deletebutton-1);
     border-radius   : var(--borderadius-square);
     background-color: var(--backgroundcolor-2);
 
     position        : absolute;
 
-    display         : flex;
-    align-items     : center;
-    justify-content : center;
-
-    &:hover {color: var(--deletebutton-2); background-color: var(--backgroundcolor-b);}
+    &:hover {color: var(--deletebutton-2);}
 }
 
 .note-dialog {
@@ -136,13 +132,13 @@
 
     border          : none;
     outline         : none;
+
     border-radius   : var(--borderadius-square);
     background-color: var(--backgroundcolor-2);
-
-    &::-webkit-scrollbar {display: none;}
 }
 
-.form {
+.form-note {
+    padding-bottom  : 0.3em;
     width           : 100%; 
     height          : 100%;
 
@@ -152,7 +148,7 @@
     flex-direction  : column;
 }
 
-.form-a {width : 100%; height: fit-content;}
+.form-top {width : 100%; height: fit-content;}
 
 .form-title, .form-content {
     padding         : 0.6em;
@@ -161,14 +157,15 @@
     height          : 100%;
 
     border          : none;
-    border-bottom   : 1px solid var(--backgroundcolor-3);
     outline         : none;
+    border-bottom   : 1px solid var(--backgroundcolor-4);
+
     font-size       : clamp(1.2rem, 1.2vw, 1.2rem);
-    color           : var(--fontcolor-2-sidebar);
+    color           : var(--fontcolor-3);
     background-color: var(--backgroundcolor-2);
 }
 
-.form-b {width: 100%; height: 100%;}
+.form-center {width: 100%; height: 100%;}
 
 .form-content {
     border: none;
@@ -182,37 +179,32 @@
     }
 }
 
-.form-c {
-    padding        : 0.6em;
+.form-bottom {
+    bottom         : 0;
+    padding        : 0.6em 1.2em 0.6em 0.6em;
     gap            : 0.6em;
 
     width          : 100%;
-    height         : fit-content;
 
+    position       : absolute;
     display        : flex;
     flex-direction : row-reverse;
-    justify-content: end;
 }
 
 .cancel-button, .save-button {
-    width           : 100%;
-    max-width       : 5em;
+    width           : min(100%, 5em);
     height          : 2em;
 
     border          : none;
     outline         : none;
+
     font-size       : clamp(1rem, 1.2vw, 1.2rem);
     font-weight     : bold;
     color           : var(--closebutton-1);
-    word-break      : break-all;
     border-radius   : var(--borderadius-square);
     background-color: var(--backgroundcolor-3);
 
     cursor          : pointer;
-
-    display         : flex;
-    align-items     : center;
-    justify-content : center;
 
     &:hover{color: var(--closebutton-2); background-color: var(--backgroundcolor-4);}
 }
