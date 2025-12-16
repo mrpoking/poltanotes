@@ -74,10 +74,10 @@ body {
     --darkmode-savebutton-1: oklch(80.45% 0.01914 283.933);
     --darkmode-savebutton-2: oklch(100% 0.01914 283.933);
 
-    --darkmode-backgroundcolor-1: oklch(0.1981 0.0227 272.41);   
-    --darkmode-backgroundcolor-2: oklch(0.2481 0.0227 272.41); 
-    --darkmode-backgroundcolor-3: oklch(0.2981 0.0227 272.41);
-    --darkmode-backgroundcolor-4: oklch(0.3481 0.0227 272.41);
+    --darkmode-backgroundcolor-1: oklch(0.1545 0.0191 283.94);   
+    --darkmode-backgroundcolor-2: oklch(0.2345 0.0191 283.94); 
+    --darkmode-backgroundcolor-3: oklch(0.2745 0.0191 283.94);
+    --darkmode-backgroundcolor-4: oklch(0.3045 0.0191 283.94);
 
     --darkmode-backgroundcolor-a: oklch(45.674% 0.10812 277.992);
     --darkmode-backgroundcolor-b: oklch(50.674% 0.10812 277.992);
