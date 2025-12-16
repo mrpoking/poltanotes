@@ -66,7 +66,6 @@ let searchTimeout;
 const searchInput = document.querySelector('[data-search]');
 searchInput.addEventListener('input', (e) => {
     clearTimeout(searchTimeout);
-
     searchTimeout = setTimeout(() => {
         const value = e.target.value.toLowerCase();
         const filteredNotes = notes.filter(note =>
@@ -74,7 +73,7 @@ searchInput.addEventListener('input', (e) => {
         );
 
         renderNotes(filteredNotes);
-    }, 200);
+    }, 150);
 });
 
 function openNoteDialog(noteId = null) {

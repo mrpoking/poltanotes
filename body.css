@@ -58,6 +58,7 @@ body {
 
 :root {
     
+
     /* DARK THEME VARIABLES */
     --darkmode-fontcolor-1: oklch(45.45% 0.01914 283.933); 
     --darkmode-fontcolor-2: oklch(55.45% 0.01914 283.933);
@@ -68,20 +69,21 @@ body {
     --darkmode-deletebutton-2: oklch(70.45% 0.01914 283.933);
 
     --darkmode-closebutton-1: oklch(50.45% 0.01914 283.933);
-    --darkmode-closebutton-2: oklch(90.45% 0.01914 283.933);
+    --darkmode-closebutton-2: oklch(70.45% 0.01914 283.933);
 
     --darkmode-savebutton-1: oklch(80.45% 0.01914 283.933);
     --darkmode-savebutton-2: oklch(100% 0.01914 283.933);
 
-    --darkmode-backgroundcolor-1: oklch(15.45% 0.01914 283.933);   
-    --darkmode-backgroundcolor-2: oklch(22.45% 0.01914 283.933); 
-    --darkmode-backgroundcolor-3: oklch(25.45% 0.01914 283.933);
-    --darkmode-backgroundcolor-4: oklch(30.45% 0.01914 283.933);
+    --darkmode-backgroundcolor-1: oklch(0.1981 0.0227 272.41);   
+    --darkmode-backgroundcolor-2: oklch(0.2481 0.0227 272.41); 
+    --darkmode-backgroundcolor-3: oklch(0.2981 0.0227 272.41);
+    --darkmode-backgroundcolor-4: oklch(0.3481 0.0227 272.41);
 
     --darkmode-backgroundcolor-a: oklch(45.674% 0.10812 277.992);
     --darkmode-backgroundcolor-b: oklch(50.674% 0.10812 277.992);
     --darkmode-backgroundcolor-c: oklch(37.802% 0.07533 22.391);
     --darkmode-backgroundcolor-d: oklch(40.933% 0.08437 23.557);
+
 
     /* LIGHT THEME VARIABLES */
     --lightmode-fontcolor-1: oklch(70% 0 0); 
@@ -107,6 +109,7 @@ body {
     --lightmode-backgroundcolor-b: oklch(65.946% 0.08191 280.133);
     --lightmode-backgroundcolor-c: oklch(65.406% 0.12791 22.177);
     --lightmode-backgroundcolor-d: oklch(70.406% 0.12791 22.177);
+
 
     /* INTERMEDIATE VARIABLES */
     --fontcolor-1: var(--darkmode-fontcolor-1);
