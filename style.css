@@ -17,10 +17,8 @@
 
 .navbar-left, .navbar-center, .navbar-right {
     gap    : var(--gap-element);
-
     width  : fit-content;
     height : 100%;
-
     display: flex;
 }
 
@@ -33,7 +31,7 @@
 
     color           : var(--fontcolor-1);
     border-radius   : var(--borderadius-circle);
-    background-color: var(--backgroundcolor-2);
+    background-color: var(--backgroundcolor-1);
     cursor          : pointer;
 
     overflow        : hidden;
@@ -50,13 +48,13 @@
     height          : 100%;
     width           : 100%;
 
-    border          : none;
+    border          : 1px solid var(--backgroundcolor-2);
     outline         : none;
 
     font-size       : clamp(1.2rem, 1vw, 1.2rem);
     color           : var(--fontcolor-4);
     border-radius   : var(--borderadius-round);
-    background-color: var(--backgroundcolor-2);
+    background-color: var(--backgroundcolor-1);
 }
 
 
@@ -64,10 +62,8 @@
 .notes-container {
     padding         : 0 0.6em 0.6em 0.6em;
     gap             : var(--gap-element);
-
     width           : min(100%, 80em);
     background-color: var(--backgroundcolor-1);
-
     display              : grid;
     grid-template-columns: repeat(auto-fill, minmax(min(15em, 100%), 1fr));
 }
@@ -124,9 +120,7 @@
 .form-note {
     width           : 100%; 
     height          : 100%;
-
     background-color: var(--backgroundcolor-2);
-
     display         : flex;
     flex-direction  : column;
 }
@@ -142,41 +136,31 @@
     border          : none;
     outline         : none;
     font-family     : 'Fira Code', monospace;
-    border-bottom   : 2px solid var(--backgroundcolor-4);
+    border-bottom   : 1px solid var(--backgroundcolor-4);
 
     font-size       : clamp(1.2rem, 1.2vw, 1.2rem);
     color           : var(--fontcolor-4);
     background-color: var(--backgroundcolor-2);
 }
 
-.form-center {width: 100%; height: 100%;}
-
+.form-center  {width: 100%; height: 100%;}
 .form-content {
-    border: none;
-
-    color : var(--fontcolor-3);
-
-    &::-webkit-scrollbar {width: 0.6em; background-color: var(--backgroundcolor-2);}
-    &::-webkit-scrollbar-thumb {
-        border-radius   : 0.6em;
-        background-color: var(--backgroundcolor-4);
-
-        cursor          : pointer;
-    }
+    border         : none;
+    color          : var(--fontcolor-3);
+    scroll-behavior: smooth;
+    &::-webkit-scrollbar       {width: 0.6em; background-color: var(--backgroundcolor-2);}
+    &::-webkit-scrollbar-thumb {border-radius: 0.6em; background-color: var(--backgroundcolor-4); cursor: pointer;}
 }
 
 .form-bottom {
     padding        : 0 0.6em 0.6em 0.6em;
     gap            : 0.6em;
-
     width          : 100%;
-
     display        : flex;
     justify-content: space-between;
 }
 
-.left-wrap {width: 5em;}
-
+.left-wrap  {width: 5em;}
 .right-wrap {gap: var(--gap-element); width: 10.6em; display: flex;}
 
 .cancel-button, .save-button, .delete-button {
@@ -193,25 +177,17 @@
     background-color: var(--backgroundcolor-3);
 
     cursor          : pointer;
-
-    &:hover{color: var(--closebutton-2); background-color: var(--backgroundcolor-4);}
+    &:hover{color   : var(--closebutton-2); background-color: var(--backgroundcolor-4);}
 }
 
 .save-button {
     color           : var(--savebutton-1);
     background-color: var(--backgroundcolor-a);
-
-    &:hover{color: var(--savebutton-2); background-color: var(--backgroundcolor-b);}
+    &:hover{color   : var(--savebutton-2); background-color: var(--backgroundcolor-b);}
 }
 
 .delete-button {
     color           : var(--deletebutton-1);
-    border          : 2px solid var(--backgroundcolor-c);
-    background-color: var(--backgroundcolor-2);
-
-    &:hover{
-        color           : var(--deletebutton-2); 
-        border          : 2px solid var(--backgroundcolor-d);
-        background-color: var(--backgroundcolor-3);
-    }
+    background-color: var(--backgroundcolor-c);
+    &:hover{color   : var(--deletebutton-2); background-color: var(--backgroundcolor-d);}
 }

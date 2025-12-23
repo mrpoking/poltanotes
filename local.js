@@ -91,7 +91,7 @@ function openNoteDialog(noteId = null) {
         editingNoteId      = noteId ? noteId : null;
         titleInput.value   = noteId ? noteToEdit.title   : '';
         contentInput.value = noteId ? noteToEdit.content : '';
-    }
+    };
 
     dialog.showModal();
 };
@@ -119,7 +119,7 @@ function applyTheme() {
 };
 
 var tog = [document.getElementById('formTitle'), document.getElementById('formContent')];
-for(var i = 0; i < tog.length; i++) {
+for (var i = 0; i < tog.length; i++) {
     tog[i].addEventListener('keydown', function(e) {
         if (e.key === "Tab" || e.keyCode === 9) {
             e.preventDefault();
@@ -129,8 +129,7 @@ for(var i = 0; i < tog.length; i++) {
             const end    = this.selectionEnd;
             const indent = '    ';
 
-            this.value = value.substring(0, start) + indent + value.substring(end);
-
+            this.value          = value.substring(0, start) + indent + value.substring(end);
             this.selectionStart = this.selectionEnd = start + indent.length;
         };
     });

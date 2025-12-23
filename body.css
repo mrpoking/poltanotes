@@ -6,21 +6,11 @@ img                     {-webkit-user-drag: none;}
 img[src=""], img:not([src]), img.missing {display: none;}
 
 input[type="search"]::-ms-clear,
-input[type="search"]::-ms-reveal {
-  width  : 0;
-  height : 0;
-  display: none;
-}
-
+input[type="search"]::-ms-reveal {width: 0; height: 0; display: none;}
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
-input[type="search"]::-webkit-search-results-decoration {
-  display           : none;
-  appearance        : none;
-  -webkit-appearance: none;
-}
-
+input[type="search"]::-webkit-search-results-decoration {display: none; appearance: none; -webkit-appearance: none;}
 input::placeholder {color: var(--fontcolor-2);}
 dialog::backdrop   {background-color: var(--backgroundcolor-1);}
 
@@ -48,12 +38,12 @@ body {
 }
 
 :root {
+    --padding-element   : 0.6em;
+    --gap-element       : 0.6em;
+    
     --borderadius-square: 0.4em; 
     --borderadius-round : 2em; 
     --borderadius-circle: 50%;
-
-    --padding-element   : 0.6em;
-    --gap-element       : 0.6em;
 }
 
 :root {
@@ -65,14 +55,14 @@ body {
     --darkmode-fontcolor-3: oklch(55.45% 0.01914 283.933);
     --darkmode-fontcolor-4: oklch(70.45% 0.01914 283.933);
 
-    --darkmode-deletebutton-1: oklch(37.802% 0.07533 22.391);
-    --darkmode-deletebutton-2: oklch(45.933% 0.08437 23.557);
+    --darkmode-deletebutton-1: oklch(80.45% 0.01914 283.933);
+    --darkmode-deletebutton-2: oklch(90.45% 0.01914 283.933);
 
     --darkmode-closebutton-1: oklch(50.45% 0.01914 283.933);
-    --darkmode-closebutton-2: oklch(70.45% 0.01914 283.933);
+    --darkmode-closebutton-2: oklch(60.45% 0.01914 283.933);
 
     --darkmode-savebutton-1: oklch(80.45% 0.01914 283.933);
-    --darkmode-savebutton-2: oklch(100% 0.01914 283.933);
+    --darkmode-savebutton-2: oklch(90% 0.01914 283.933);
 
     --darkmode-backgroundcolor-1: oklch(0.1545 0.0191 283.94);   
     --darkmode-backgroundcolor-2: oklch(0.2345 0.0191 283.94); 
@@ -91,11 +81,11 @@ body {
     --lightmode-fontcolor-3: oklch(40% 0 0); 
     --lightmode-fontcolor-4: oklch(15% 0 0);
 
-    --lightmode-deletebutton-1: oklch(70.406% 0.12791 22.177); 
-    --lightmode-deletebutton-2: oklch(65.406% 0.12791 22.177);
+    --lightmode-deletebutton-1: oklch(100% 0 0); 
+    --lightmode-deletebutton-2: oklch(95% 0 0);
 
     --lightmode-closebutton-1: oklch(55% 0 0); 
-    --lightmode-closebutton-2: oklch(45% 0 0);
+    --lightmode-closebutton-2: oklch(50% 0 0);
 
     --lightmode-savebutton-1: oklch(100% 0 0); 
     --lightmode-savebutton-2: oklch(95% 0 0);
