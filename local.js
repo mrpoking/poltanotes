@@ -127,7 +127,7 @@ for(var i = 0; i < tog.length; i++) {
             const value  = this.value;
             const start  = this.selectionStart;
             const end    = this.selectionEnd;
-            const indent = '   ';
+            const indent = '    ';
 
             this.value = value.substring(0, start) + indent + value.substring(end);
 
