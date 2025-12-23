@@ -89,8 +89,7 @@
     flex-direction  : column;
 
     &:hover {
-        .note-title, .note-content, .delete-note {background-color: var(--backgroundcolor-3);}
-        .delete-note:hover {background-color: var(--backgroundcolor-c);}
+        .note-title, .note-content {background-color: var(--backgroundcolor-3);}
         background-color: var(--backgroundcolor-3);
     }
 }
@@ -104,27 +103,6 @@
 }
 
 .note-content {font-size: clamp(1.2rem, 1.2vw, 1.2rem); color: var(--fontcolor-3);}
-
-.delete-note {
-    top             : 0;
-    right           : 0;
-    margin          : 0.3em;
-
-    height          : 2em;
-    aspect-ratio    : 1/1;
-
-    border          : none;
-    outline         : none;
-
-    font-size       : 1.15em;
-    color           : var(--deletebutton-1);
-    border-radius   : var(--borderadius-square);
-    background-color: var(--backgroundcolor-2);
-
-    position        : absolute;
-
-    &:hover {color: var(--deletebutton-2);}
-}
 
 .note-dialog {
     top             : 50%;
@@ -163,6 +141,7 @@
 
     border          : none;
     outline         : none;
+    font-family     : 'Fira Code', monospace;
     border-bottom   : 1px solid var(--backgroundcolor-4);
 
     font-size       : clamp(1.2rem, 1.2vw, 1.2rem);
@@ -193,10 +172,14 @@
     width          : 100%;
 
     display        : flex;
-    flex-direction : row-reverse;
+    justify-content: space-between;
 }
 
-.cancel-button, .save-button {
+.left-wrap {width: 5em;}
+
+.right-wrap {gap: var(--gap-element); width: 10.6em; display: flex;}
+
+.cancel-button, .save-button, .delete-button {
     width           : min(100%, 5em);
     height          : 2em;
 
@@ -219,4 +202,11 @@
     background-color: var(--backgroundcolor-a);
 
     &:hover{color: var(--savebutton-2); background-color: var(--backgroundcolor-b);}
+}
+
+.delete-button {
+    color           : var(--savebutton-1);
+    background-color: var(--backgroundcolor-c);
+
+    &:hover{color: var(--savebutton-2); background-color: var(--backgroundcolor-d);}
 }

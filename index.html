@@ -8,6 +8,7 @@
     <meta name="description" content="Save Your Ideas At Polta Notes">
     <link rel="stylesheet"   href="body.css">
     <link rel="stylesheet"   href="style.css">
+    <link rel="stylesheet"   href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap">
     <link rel="icon"         href="polta.png" type="image/png">
     <script src="local.js"   defer></script>
     
@@ -54,8 +55,13 @@
             </div>
 
             <div class="form-bottom">
-                <button type="submit" class="save-button">></button>
-                <button type="button" onclick="closeNoteDialog()" class="cancel-button">✕</button>
+                <div class="left-wrap">
+                    <button type="button" onclick="deleteNote(event)" class="delete-button">#</button>
+                </div>
+                <div class="right-wrap">
+                    <button type="button" onclick="closeNoteDialog()" class="cancel-button">✕</button>
+                    <button type="submit" class="save-button">></button>
+                </div>
             </div>
 
         </form>
