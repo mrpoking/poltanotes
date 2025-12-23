@@ -65,8 +65,8 @@ body {
     --darkmode-fontcolor-3: oklch(55.45% 0.01914 283.933);
     --darkmode-fontcolor-4: oklch(70.45% 0.01914 283.933);
 
-    --darkmode-deletebutton-1: oklch(50.45% 0.01914 283.933);
-    --darkmode-deletebutton-2: oklch(70.45% 0.01914 283.933);
+    --darkmode-deletebutton-1: oklch(37.802% 0.07533 22.391);
+    --darkmode-deletebutton-2: oklch(45.933% 0.08437 23.557);
 
     --darkmode-closebutton-1: oklch(50.45% 0.01914 283.933);
     --darkmode-closebutton-2: oklch(70.45% 0.01914 283.933);
@@ -91,8 +91,8 @@ body {
     --lightmode-fontcolor-3: oklch(40% 0 0); 
     --lightmode-fontcolor-4: oklch(15% 0 0);
 
-    --lightmode-deletebutton-1: oklch(40% 0 0); 
-    --lightmode-deletebutton-2: oklch(100% 0 0);
+    --lightmode-deletebutton-1: oklch(70.406% 0.12791 22.177); 
+    --lightmode-deletebutton-2: oklch(65.406% 0.12791 22.177);
 
     --lightmode-closebutton-1: oklch(55% 0 0); 
     --lightmode-closebutton-2: oklch(45% 0 0);

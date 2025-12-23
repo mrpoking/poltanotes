@@ -142,7 +142,7 @@
     border          : none;
     outline         : none;
     font-family     : 'Fira Code', monospace;
-    border-bottom   : 1px solid var(--backgroundcolor-4);
+    border-bottom   : 2px solid var(--backgroundcolor-4);
 
     font-size       : clamp(1.2rem, 1.2vw, 1.2rem);
     color           : var(--fontcolor-4);
@@ -205,8 +205,13 @@
 }
 
 .delete-button {
-    color           : var(--savebutton-1);
-    background-color: var(--backgroundcolor-c);
+    color           : var(--deletebutton-1);
+    border          : 2px solid var(--backgroundcolor-c);
+    background-color: var(--backgroundcolor-2);
 
-    &:hover{color: var(--savebutton-2); background-color: var(--backgroundcolor-d);}
+    &:hover{
+        color           : var(--deletebutton-2); 
+        border          : 2px solid var(--backgroundcolor-d);
+        background-color: var(--backgroundcolor-3);
+    }
 }
