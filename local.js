@@ -118,9 +118,9 @@ function applyTheme() {
     .forEach((s) => document.body.style.setProperty(`--${s}`, `var(--${localStorage.getItem('themeMode')}-${s})`));
 };
 
-var tog = [document.getElementById('formTitle'), document.getElementById('formContent')];
-for (var i = 0; i < tog.length; i++) {
-    tog[i].addEventListener('keydown', function(e) {
+const formText = [document.getElementById('formTitle'), document.getElementById('formContent')];
+for (let i = 0; i < formText.length; i++) {
+    formText[i].addEventListener('keydown', function(e) {
         if (e.key === "Tab" || e.keyCode === 9) {
             e.preventDefault();
 
@@ -129,8 +129,27 @@ for (var i = 0; i < tog.length; i++) {
             const end    = this.selectionEnd;
             const indent = '    ';
 
-            this.value          = value.substring(0, start) + indent + value.substring(end);
-            this.selectionStart = this.selectionEnd = start + indent.length;
+            if (start === end) {
+                this.value          = value.substring(0, start) + indent + value.substring(end);
+                this.selectionStart = this.selectionEnd = start + indent.length;
+            } else {
+                const lines = value.substring(start, end).split('\n');
+                if (e.shiftKey) {
+                    const dedentedLines = lines.map(line => {
+                        if (line.startsWith(indent)) {return line.substring(4);}
+                        if (line.startsWith('\t'))   {return line.substring(0);}
+                        return line;
+                    });
+
+                    this.value = value.substring(0, start) + dedentedLines.join('\n') + value.substring(end);
+                } else {
+                    const indentedLines = lines.map(line => indent + line);
+                    this.value          = value.substring(0, start) + indentedLines.join('\n') + value.substring(end);
+                };
+
+                this.selectionStart = start;
+                this.selectionEnd   = start + (e.shiftKey - indent.length);
+            };
         };
     });
 };
