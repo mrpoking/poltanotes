@@ -163,7 +163,7 @@
     cursor          : pointer;
     &:hover{color   : var(--closebutton-2); background-color: var(--backgroundcolor-4);}
 }
-.save-button {
+/*.save-button {
     color           : var(--savebutton-1);
     background-color: var(--backgroundcolor-a);
     &:hover{color   : var(--savebutton-2); background-color: var(--backgroundcolor-b);}
@@ -172,4 +172,4 @@
     color           : var(--deletebutton-1);
     background-color: var(--backgroundcolor-c);
     &:hover{color   : var(--deletebutton-2); background-color: var(--backgroundcolor-d);}
-}
+}*/
