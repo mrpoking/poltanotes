@@ -2,15 +2,19 @@ let notes         = [];
 let editingNoteId = null; 
 let currentNoteId = null;
 
+// FUNCTION SAVE NOTES
 function saveNotes() {localStorage.setItem('quickNotes', JSON.stringify(notes));} 
 
+// FUNCTION LOAD NOTES
 function loadNotes() { 
     const savedNotes = localStorage.getItem('quickNotes'); 
     return savedNotes ? JSON.parse(savedNotes) : []; 
 };
 
+// FUNCTION GENERATE ID
 function generateId() {return Date.now().toString(36) + Math.random().toString(36).slice(2);} 
 
+// FUNCTION SAVE NOTE
 function saveNote(e) {
     e.preventDefault();
 
@@ -37,6 +41,7 @@ function saveNote(e) {
     renderNotes();
 };
 
+// FUNCTION DELETE NOTE
 function deleteNote(event) {
     event.stopPropagation();
     if (!currentNoteId) return;
@@ -49,12 +54,14 @@ function deleteNote(event) {
     };
 };
 
+// FUNCTION ESCAPE DANGEROUS HTML
 function escapeDanHTML(str) {
     const div = document.createElement('div');
     div.textContent = str;
     return div.innerHTML;
 };
 
+// FUNCTION RENDER NOTES
 function renderNotes(list = notes) {
     const notesContainer     = document.getElementById('notesContainer');
     notesContainer.innerHTML = list.map(note => `
@@ -65,6 +72,7 @@ function renderNotes(list = notes) {
     `).join('');
 };
 
+// FUNCTION SEARCH NOTE
 let searchTimeout;
 const searchInput = document.querySelector('[data-search]');
 searchInput.addEventListener('input', (e) => {
@@ -79,6 +87,7 @@ searchInput.addEventListener('input', (e) => {
     }, 150);
 });
 
+// FUNCTION OPEN DIALOG
 function openNoteDialog(noteId = null) {
     currentNoteId = noteId;
 
@@ -96,6 +105,7 @@ function openNoteDialog(noteId = null) {
     dialog.showModal();
 };
 
+// FUNCTION CLOSE NOTE DIALOG
 function closeNoteDialog() {document.getElementById('noteDialog').close();}
 
 const themeIcon          = document.getElementById('themeButton');
@@ -106,13 +116,15 @@ let themeMode = localStorage.getItem('themeMode') === 'darkmode';
     themeIcon.textContent = themeMode ? darkmodeThemeIcon : lightmodeThemeIcon;
     applyTheme();
 
+// FUNCTION THEME BUTTON 
 function themeButton() { 
     themeMode = !themeMode;
     themeIcon.textContent = themeMode ? darkmodeThemeIcon : lightmodeThemeIcon;
     localStorage.setItem('themeMode', themeMode ? 'darkmode' : 'lightmode');
     applyTheme();
 };
-    
+
+// FUNCTION APPLY THEME
 function applyTheme() {
     ['fontcolor-1', 'fontcolor-2', 'fontcolor-3', 'fontcolor-4', 'deletebutton-1', 'deletebutton-2', 'closebutton-1', 'closebutton-2', 'savebutton-1', 'savebutton-2', 'backgroundcolor-1', 'backgroundcolor-2', 'backgroundcolor-3', 'backgroundcolor-4', 'backgroundcolor-a', 'backgroundcolor-b', 'backgroundcolor-c', 'backgroundcolor-d']
     .forEach((s) => document.body.style.setProperty(`--${s}`, `var(--${localStorage.getItem('themeMode')}-${s})`));
@@ -154,6 +166,7 @@ for (let i = 0; i < formText.length; i++) {
     });
 };
 
+// FUNCTION AWAIT
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.form-note').addEventListener('submit', saveNote);
     notes = loadNotes();
